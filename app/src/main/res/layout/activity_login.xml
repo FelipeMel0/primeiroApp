@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/ll_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="#E7008A"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/textTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Health \n    Calc"
+            android:textColor="@color/white"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:padding="11dp"
+            android:textStyle="bold"
+            android:textSize="25sp"/>
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="84dp"
+            android:src="@drawable/imc_icone_branco"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageOnda"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/ll_header"
+        android:layout_marginBottom="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_wave_top" />
+
+
+    <TextView
+        android:id="@+id/textLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageOnda"
+        android:layout_marginBottom="-72dp"
+        android:padding="25dp"
+        android:text="Login"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/textSubtitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Faça login para continuar"
+        android:layout_alignBottom="@+id/textLogin"
+        android:paddingStart="25dp"
+        />
+
+
+    <EditText
+        android:id="@+id/editEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textSubtitulo"
+        android:layout_marginBottom="-53dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:maxLength="30"
+        android:background="@drawable/activity_edit_text"
+        android:drawableStart="@drawable/ic_baseline_email_24"
+        android:padding="10dp"
+        android:drawablePadding="10dp"
+        android:hint="E-mail"/>
+
+    <EditText
+        android:id="@+id/editSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editEmail"
+        android:layout_marginBottom="-53dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:maxLength="30"
+        android:background="@drawable/activity_edit_text"
+        android:drawableStart="@drawable/ic_cadeado"
+        android:padding="10dp"
+        android:drawablePadding="10dp"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        />
+
+    <Button
+        android:id="@+id/button_entrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editSenha"
+        android:layout_marginBottom="-52dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:text="Entrar"
+        android:background="#E7008A"/>
+
+    <CheckBox
+        android:id="@+id/checkLembrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lembrar-me"
+        android:layout_below="@+id/button_entrar"
+        android:layout_marginTop="52dp"
+        android:layout_alignEnd="@+id/button_entrar"
+        />
+
+    <TextView
+        android:id="@+id/textEsqueci"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Esqueci a senha"
+        android:clickable="true"
+        android:layout_below="@+id/checkLembrar"
+        android:layout_alignEnd="@+id/checkLembrar"
+        android:textColor="#0a508c"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Criar uma conta agora"
+        android:clickable="true"
+        android:layout_below="@+id/textEsqueci"
+        android:layout_alignEnd="@+id/textEsqueci"
+        android:textColor="#0a508c"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Não tem conta?"
+        android:gravity="center"
+        android:layout_below="@+id/textEsqueci"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="15dp"/>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="143dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_wave_bottom" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Desenvolvido por DS2M"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:layout_marginBottom="7dp"/>
+
+</RelativeLayout>
