@@ -1,18 +1,40 @@
 package com.example.primeiroapp
 
 import android.app.DatePickerDialog
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 
 class NovoUsuarioActivity : AppCompatActivity() {
+
+    lateinit var editEmail: EditText
+    lateinit var editSenha: EditText
+    lateinit var editNome: EditText
+    lateinit var editProfissao: EditText
+    lateinit var editAltura: EditText
+    lateinit var editDataNascimento: EditText
+    lateinit var editSexo: RadioButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_novo_usuario)
+
+        editEmail = findViewById(R.id.et_email)
+        editSenha = findViewById(R.id.et_senha)
+        editNome = findViewById(R.id.et_nome)
+        editProfissao = findViewById(R.id.et_profissao)
+        editAltura = findViewById(R.id.et_altura)
+        editDataNascimento = findViewById(R.id.et_data)
+//        editSexo = findViewById(R.id.rg_sexo)
+
 
         supportActionBar!!.title = "Perfil"
 
@@ -42,26 +64,71 @@ class NovoUsuarioActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-//        if (item.itemId == R.id.menu_save){
-//            Toast.makeText(this, "Salvar", Toast.LENGTH_SHORT).show()
-//        } else if(item.itemId == R.id.menu_settings){
-//            Toast.makeText(this, "Configurações", Toast.LENGTH_SHORT).show()
-//        } else{
-//            Toast.makeText(this, "Perfil", Toast.LENGTH_SHORT).show()
-//        }
-
-        when (item.itemId){
-
-            R.id.icone_salvar -> {
-                Toast.makeText(this, "Salvar", Toast.LENGTH_SHORT).show()
-            }
-
+        if (validarCampos()){
+            //Salvar o registro
         }
+
+//        when (item.itemId){
+
+//            R.id.icone_salvar -> {
+//            Toast.makeText(this, "Salvar", Toast.LENGTH_SHORT).show()
+//            }
+
+//        }
 
         return true
 
     }
 
+    fun validarCampos() : Boolean{
+
+        var valido = true
+
+        if (editEmail.text.isEmpty()){
+            editEmail.error = "Email é um campo obrigatório"
+            valido = false
+        }
+
+        if (editSenha.text.isEmpty()){
+            editSenha.error = "Senha é um campo obrigatório"
+            valido = false
+        }
+
+        if (editNome.text.isEmpty()){
+            editNome.error = "Nome é um campo obrigatório"
+            valido = false
+        }
+
+        if (editProfissao.text.isEmpty()){
+            editProfissao.error = "Profissão é um campo obrigatório"
+            valido = false
+        }
+
+        if (editAltura.text.isEmpty()){
+            editAltura.error = "Altura é um campo obrigatório"
+            valido = false
+        }
+
+        if(editDataNascimento.text.isEmpty()){
+            editDataNascimento.error = "Data de nascimento é um campo obrigatório"
+            valido = false
+        }
+
+//        if(editSexo.text.isEmpty()){
+//            editSexo.error = "Sexo é um campo obrigatório"
+//            valido = false
+//        }
+
+        return valido
+
+    }
+
+
+
+
+
 }
+
+
 
 

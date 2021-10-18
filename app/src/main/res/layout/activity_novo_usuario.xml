@@ -65,6 +65,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <EditText
+            android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
@@ -80,6 +81,7 @@
         app:passwordToggleEnabled="true">
 
         <EditText
+            android:id="@+id/et_senha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
@@ -104,6 +106,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <EditText
+            android:id="@+id/et_nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
@@ -118,6 +121,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <EditText
+            android:id="@+id/et_profissao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
@@ -132,6 +136,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <EditText
+            android:id="@+id/et_altura"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
@@ -171,7 +176,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="5dp">
+            android:layout_marginBottom="5dp"
+            android:id="@+id/rg_sexo">
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
