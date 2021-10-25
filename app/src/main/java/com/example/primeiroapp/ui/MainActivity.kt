@@ -1,12 +1,12 @@
-package com.example.primeiroapp
+package com.example.primeiroapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
-import java.text.DecimalFormat
+import com.example.primeiroapp.R
+import com.example.primeiroapp.calcularImc
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

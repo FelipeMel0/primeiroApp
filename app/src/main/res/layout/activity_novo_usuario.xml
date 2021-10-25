@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NovoUsuarioActivity"
+    tools:context=".ui.NovoUsuarioActivity"
     android:orientation="vertical"
     android:padding="15dp">
 
@@ -179,11 +179,13 @@
             android:layout_marginBottom="5dp"
             android:id="@+id/rg_sexo">
             <RadioButton
+                android:id="@+id/radio_feminino"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Feminino"
                 android:textColor="#757575"/>
             <RadioButton
+                android:id="@+id/radio_masculino"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Masculino"
