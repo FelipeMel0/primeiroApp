@@ -56,7 +56,13 @@ class NovoUsuarioActivity : AppCompatActivity() {
             val dp = DatePickerDialog(
                 this,
                 DatePickerDialog.OnDateSetListener { view, _ano, _mes, _dia ->
-                    etDataNascimento.setText("$_dia/${_mes + 1}/$_ano")
+                    if(_mes > 10) {
+                        etDataNascimento.setText("$_dia/0${_mes + 1}/$_ano")
+                    } else if (_dia > 10){
+                        etDataNascimento.setText("0$_dia/${_mes + 1}/$_ano")
+                    } else{
+                        etDataNascimento.setText("0$_dia/0${_mes + 1}/$_ano")
+                    }
                 },
                 ano,
                 mes,
