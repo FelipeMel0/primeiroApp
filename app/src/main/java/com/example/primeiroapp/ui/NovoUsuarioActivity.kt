@@ -2,7 +2,11 @@ package com.example.primeiroapp.ui
 
 import android.app.DatePickerDialog
 import android.content.Context
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.*
@@ -15,6 +19,8 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
 
+const val CODE_IMAGE = 5000
+
 class NovoUsuarioActivity : AppCompatActivity() {
 
     lateinit var editEmail: EditText
@@ -25,6 +31,10 @@ class NovoUsuarioActivity : AppCompatActivity() {
     lateinit var editDataNascimento: EditText
     lateinit var radioF : RadioButton
     lateinit var radioM : RadioButton
+    lateinit var tvTrocarFoto : TextView
+    lateinit var ivFotoPerfil : ImageView
+
+    var imagemBitmap : Bitmap? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,8 +48,15 @@ class NovoUsuarioActivity : AppCompatActivity() {
         editDataNascimento = findViewById(R.id.et_data)
         radioF = findViewById(R.id.radio_feminino)
         radioM = findViewById(R.id.radio_masculino)
+        tvTrocarFoto = findViewById(R.id.tv_trocar_foto)
+        ivFotoPerfil = findViewById(R.id.iv_foto_perfil)
 
         supportActionBar!!.title = "Perfil"
+
+        //Abrir a galeria de fotos
+        tvTrocarFoto.setOnClickListener {
+            abrirGaleria()
+        }
 
         //Criar um calendário
         val calendario = Calendar.getInstance()
@@ -81,6 +98,33 @@ class NovoUsuarioActivity : AppCompatActivity() {
 
             dp.show()
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, imagem: Intent?) {
+        super.onActivityResult(requestCode, resultCode, imagem)
+
+        if (requestCode == CODE_IMAGE && resultCode == -1){
+            //Recuperar a imagem do stream
+            val fluxoImagem = contentResolver.openInputStream(imagem!!.data!!)
+
+            //Converter os bits em um bitmap
+            imagemBitmap = BitmapFactory.decodeStream(fluxoImagem)
+
+            //Colocar o bitmap no imageview
+            ivFotoPerfil.setImageBitmap(imagemBitmap)
+        }
+
+    }
+
+    private fun abrirGaleria() {
+
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "image/*"
+
+        //Abrir a activity responsável por abrir as imagens
+        //Essa activity retornará o conteúdo selecionado para o app
+        startActivityForResult(Intent.createChooser(intent, "Escolha uma foto"), CODE_IMAGE)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
