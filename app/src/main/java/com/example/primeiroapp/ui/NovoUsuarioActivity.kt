@@ -60,8 +60,8 @@ class NovoUsuarioActivity : AppCompatActivity() {
                     var diaFinal = _dia
                     var mesFinal = _mes + 1
 
-                    var mesString = ""
-                    var diaString = ""
+                    var mesString = "$mesFinal"
+                    var diaString = "$diaFinal"
 
                     if (mesFinal < 10){
                         mesString = "0$mesFinal"
