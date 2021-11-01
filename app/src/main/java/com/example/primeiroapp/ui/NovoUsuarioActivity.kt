@@ -12,9 +12,12 @@ import android.view.MenuItem
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.parseAsHtml
+import androidx.core.view.drawToBitmap
 import com.example.primeiroapp.R
 import com.example.primeiroapp.model.Usuario
 import com.example.primeiroapp.utils.convertStringToLocalDate
+import com.example.primeiroapp.utils.encodeImage
+import java.io.ByteArrayOutputStream
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -132,6 +135,8 @@ class NovoUsuarioActivity : AppCompatActivity() {
         return true
     }
 
+
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         if (validarCampos()) {
@@ -139,6 +144,8 @@ class NovoUsuarioActivity : AppCompatActivity() {
             //Criar o objeto Usuário
 
                 val nascimento = convertStringToLocalDate(editDataNascimento.text.toString())
+
+            val perfil = encodeImage(ivFotoPerfil.drawToBitmap())
 
             val usuario = Usuario(
                 1,
@@ -153,14 +160,16 @@ class NovoUsuarioActivity : AppCompatActivity() {
                     nascimento.dayOfMonth
                 ),
                 editProfissao.text.toString(),
-                if (radioF.isChecked) 'F' else 'M'
+                if (radioF.isChecked) 'F' else 'M',
+                perfil.toString()
+
             )
 
             //Salvar o registro em um SharedPreferences
 
             //A instrução abaixo cria um arquivo sharedPreferences caso não exista. Se existir, será aberto para edição
 
-            val dados = getSharedPreferences("usuario", Context.MODE_PRIVATE)
+            val dados = getSharedPreferences("usuario", MODE_PRIVATE)
 
             val editor = dados.edit()
             editor.putInt("id", usuario.id)
@@ -172,6 +181,7 @@ class NovoUsuarioActivity : AppCompatActivity() {
             editor.putString("dataNascimento", usuario.dataNascimento.toString())
             editor.putString("profissao", usuario.profissao)
             editor.putString("sexo", usuario.sexo.toString())
+            editor.putString("fotoPerfil", usuario.fotoPerfil)
             editor.apply()
 
         }
