@@ -11,6 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.drawable.toBitmap
 import androidx.core.text.parseAsHtml
 import androidx.core.view.drawToBitmap
 import com.example.primeiroapp.R
@@ -53,6 +54,10 @@ class NovoUsuarioActivity : AppCompatActivity() {
         radioM = findViewById(R.id.radio_masculino)
         tvTrocarFoto = findViewById(R.id.tv_trocar_foto)
         ivFotoPerfil = findViewById(R.id.iv_foto_perfil)
+
+//        imagemBitmap = resources.getDrawable(R.drawable.pessoaconfusa).toBitmap()
+
+        imagemBitmap = BitmapFactory.decodeResource(resources, R.drawable.pessoaconfusa)
 
         supportActionBar!!.title = "Perfil"
 
@@ -142,7 +147,6 @@ class NovoUsuarioActivity : AppCompatActivity() {
         if (validarCampos()) {
 
             //Criar o objeto Usuário
-
                 val nascimento = convertStringToLocalDate(editDataNascimento.text.toString())
 
             val perfil = encodeImage(ivFotoPerfil.drawToBitmap())
@@ -195,6 +199,10 @@ class NovoUsuarioActivity : AppCompatActivity() {
     fun validarCampos(): Boolean {
 
         var valido = true
+
+        if(imagemBitmap == null){
+
+        }
 
         if (editEmail.text.isEmpty()) {
             editEmail.error = "Email é um campo obrigatório"

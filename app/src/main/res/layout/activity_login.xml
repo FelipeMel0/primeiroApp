@@ -70,7 +70,7 @@
 
 
     <EditText
-        android:id="@+id/editEmail"
+        android:id="@+id/edit_login_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textSubtitulo"
@@ -85,10 +85,10 @@
         android:hint="E-mail"/>
 
     <EditText
-        android:id="@+id/editSenha"
+        android:id="@+id/edit_login_senha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editEmail"
+        android:layout_alignBottom="@+id/edit_login_email"
         android:layout_marginBottom="-53dp"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
@@ -105,7 +105,7 @@
         android:id="@+id/button_entrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editSenha"
+        android:layout_alignBottom="@+id/edit_login_senha"
         android:layout_marginBottom="-52dp"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
