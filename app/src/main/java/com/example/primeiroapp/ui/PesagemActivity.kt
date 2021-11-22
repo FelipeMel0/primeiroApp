@@ -3,6 +3,7 @@ package com.example.primeiroapp.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.primeiroapp.R
@@ -14,11 +15,15 @@ class PesagemActivity : AppCompatActivity() {
 
     lateinit var tvDataAtual : TextView
 
+    lateinit var etPeso : EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pesagem)
 
         tvDataAtual = findViewById(R.id.tv_data_atual)
+
+        etPeso = findViewById(R.id.edit_text_peso)
 
         val date = Calendar.getInstance().time
 
@@ -30,5 +35,6 @@ class PesagemActivity : AppCompatActivity() {
         buttonSalvarPeso.setOnClickListener {
             Toast.makeText(this, "Peso cadastrado", Toast.LENGTH_SHORT).show()
         }
+
     }
 }
