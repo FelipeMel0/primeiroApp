@@ -1,9 +1,11 @@
 package com.example.primeiroapp.ui
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.primeiroapp.R
 import com.example.primeiroapp.utils.calcularIdade
@@ -34,6 +36,8 @@ class DashboardActivity : AppCompatActivity() {
 //
 //    tvFotoPerfil = findViewById(R.id.iv_dash_foto)
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
@@ -49,36 +53,17 @@ class DashboardActivity : AppCompatActivity() {
          tvIdade = findViewById(R.id.tv_idade)
          tvFotoPerfil = findViewById(R.id.iv_dash_foto)
 
+//        val tvPesar = findViewById<TextView>(R.id.ll_pesar_agora)
 
-//        val arquivo = applicationContext.getSharedPreferences("usuario", Context.MODE_PRIVATE)
-//        val prefs = getSharedPreferences("usuario", Context.MODE_PRIVATE)
-
-
-
-
-
-        //Nome
-//        val name = prefs.getString("nome", "")
-//        tvNome.setText(name.toString())
-//
-//        //Profissão
-//        val profissao = prefs.getString("profissao", "")
-//        tvProfissao.setText(profissao.toString())
-//
-//        //Altura
-//        val altura = prefs.getFloat("altura", 0.00F)
-//        tvAltura.setText(altura.toString())
-//
-//        //Idade
-////        val idade = prefs.getString("dataNascimento", "")
-////        tvDataNascimento.setText(idade.toString())
-//
-//        tvIdade.text = calcularIdade(prefs.getString("dataNascimento", "")!!).toString()
-//
-//        val bitmap = convertBase64ToBitMap(prefs.getString("fotoPerfil", "")!!)
-//        tvFotoPerfil.setImageBitmap(bitmap)
+        val tvPesar = findViewById<LinearLayout>(R.id.ll_pesar_agora)
 
         carregarDashboard()
+
+        tvPesar.setOnClickListener {
+            val abrirDatePickerActivity = Intent(this, PesagemActivity::class.java)
+
+            startActivity(abrirDatePickerActivity)
+        }
 
     }
 
