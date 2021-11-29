@@ -4,97 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/activity_background"
     android:orientation="vertical"
-    tools:context=".ui.MainActivity"
-    android:background="@drawable/activity_background">
+    android:scrollbarThumbHorizontal="@color/minhaCor"
+    android:scrollbarThumbVertical="@drawable/activity_result"
+    tools:context=".ui.MainActivity">
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/imc_icone_branco" />
+
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="30dp">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-5dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:text="Pesagem"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/imc_icone_branco"
-                android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/tv_data_atual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/activity_stroke"
+            android:drawablePadding="8dp"
+            android:hint="Data"
+            android:padding="15dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Pesagem"
-                android:gravity="center"
-                android:textColor="@android:color/white"
-                android:textSize="30sp"
-                android:fontFamily="sans-serif-black"
-                android:layout_marginTop="-5dp"
-                android:layout_marginBottom="20dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="Nível de atividade:"
+            android:textColor="@color/white" />
 
-            <TextView
-                android:id="@+id/tv_data_atual"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/activity_stroke"
-                android:drawablePadding="8dp"
-                android:hint="Data"
-                android:padding="15dp"
-                android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white" />
+        <Spinner
+            android:id="@+id/spinner_niveis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/activity_stroke"
+            android:entries="@array/niveis"
+            android:padding="15dp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Nível de atividade:"
-                android:textColor="@color/white"
-                android:layout_marginBottom="5dp"
-                />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="Digite seu peso:"
+            android:textColor="@color/white" />
 
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/activity_stroke"
-                android:layout_marginBottom="15dp"
-                android:padding="15dp"
-                android:tooltipText="@string/Felipônsio"
-                />
+        <EditText
+            android:id="@+id/edit_text_peso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/activity_stroke"
+            android:drawablePadding="8dp"
+            android:hint="Peso"
+            android:inputType="numberDecimal"
+            android:maxLength="4"
+            android:padding="15dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Digite seu peso:"
-                android:textColor="@color/white"
-                android:layout_marginBottom="5dp"
-                />
-
-            <EditText
-                android:id="@+id/edit_text_peso"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Peso"
-                android:textColorHint="@android:color/white"
-                android:textColor="@android:color/white"
-                android:background="@drawable/activity_stroke"
-                android:drawablePadding="8dp"
-                android:padding="15dp"
-                android:layout_marginBottom="25dp"
-                android:inputType="numberDecimal"
-                android:maxLength="4"/>
-
-            <Button
-                android:id="@+id/button_salvar_peso"
-                android:layout_width="285dp"
-                android:layout_height="62dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginEnd="25dp"
-                android:layout_marginBottom="-52dp"
-                android:background="#E7008A"
-                android:text="Salvar" />
+        <Button
+            android:id="@+id/button_salvar_peso"
+            android:layout_width="285dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="-52dp"
+            android:background="#E7008A"
+            android:text="Salvar" />
 
 
-        </LinearLayout>
+    </LinearLayout>
 
 
 </LinearLayout>

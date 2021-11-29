@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import com.example.primeiroapp.R
 import com.example.primeiroapp.utils.calcularIdade
 import com.example.primeiroapp.utils.convertBase64ToBitMap
