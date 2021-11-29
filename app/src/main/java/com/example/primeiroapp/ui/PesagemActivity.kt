@@ -14,6 +14,10 @@ class PesagemActivity : AppCompatActivity() {
 
     lateinit var etPeso : EditText
 
+    lateinit var spinnerNivel : Spinner
+
+    lateinit var btnRegistrarPeso : Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pesagem)
@@ -22,15 +26,25 @@ class PesagemActivity : AppCompatActivity() {
 
         etPeso = findViewById(R.id.edit_text_peso)
 
+        //Formatando a data
         val date = Calendar.getInstance().time
 
         var dateTimeFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         tvDataAtual.text = dateTimeFormat.format(date)
 
-        var buttonSalvarPeso = findViewById<Button>(R.id.button_salvar_peso)
 
-        buttonSalvarPeso.setOnClickListener {
-            Toast.makeText(this, "Peso cadastrado", Toast.LENGTH_SHORT).show()
+
+        spinnerNivel = findViewById(R.id.spinner_niveis)
+
+        btnRegistrarPeso = findViewById(R.id.button_salvar_peso)
+
+        btnRegistrarPeso.setOnClickListener {
+            val arquivo = getSharedPreferences("usuario", MODE_PRIVATE)
+            val editor = arquivo.edit()
+            editor.putString("pesagem", etPeso.text.toString())
+            editor.putString("data_pesagem", LocalDate.now().toString())
+            editor.putString("nivel", spinnerNivel.selectedItemPosition.toString())
+            editor.apply()
         }
 
     }
