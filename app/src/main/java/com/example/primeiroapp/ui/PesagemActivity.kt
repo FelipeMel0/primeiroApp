@@ -40,11 +40,21 @@ class PesagemActivity : AppCompatActivity() {
 
         btnRegistrarPeso.setOnClickListener {
             val arquivo = getSharedPreferences("usuario", MODE_PRIVATE)
+
+            val pesagem = arquivo.getString("pesagem", "")
+            val dataPesagem = arquivo.getString("data_pesagem", "")
+            val nivel = arquivo.getString("nivel", "")
+
             val editor = arquivo.edit()
-            editor.putString("pesagem", etPeso.text.toString())
-            editor.putString("data_pesagem", LocalDate.now().toString())
-            editor.putString("nivel", spinnerNivel.selectedItemPosition.toString())
+            editor.putString("pesagem", "$pesagem;${etPeso.text.toString()}")
+            editor.putString("data_pesagem", "$dataPesagem;${LocalDate.now().toString()}")
+            editor.putString("nivel",  "$nivel;${spinnerNivel.selectedItemPosition.toString()}")
             editor.apply()
+
+            Toast.makeText(this, "Peso registrado com sucesso!", Toast.LENGTH_SHORT).show()
+
+            finish()
+
         }
 
     }
