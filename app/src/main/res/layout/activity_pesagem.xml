@@ -43,6 +43,32 @@
                 android:textColor="@android:color/white"
                 android:textColorHint="@android:color/white" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nível de atividade:"
+                android:textColor="@color/white"
+                android:layout_marginBottom="5dp"
+                />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/activity_stroke"
+                android:layout_marginBottom="15dp"
+                android:padding="15dp"
+                android:tooltipText="@string/Felipônsio"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Digite seu peso:"
+                android:textColor="@color/white"
+                android:layout_marginBottom="5dp"
+                />
+
             <EditText
                 android:id="@+id/edit_text_peso"
                 android:layout_width="match_parent"

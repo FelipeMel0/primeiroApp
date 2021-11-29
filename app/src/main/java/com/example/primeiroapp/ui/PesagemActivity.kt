@@ -2,10 +2,7 @@ package com.example.primeiroapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.example.primeiroapp.R
 import java.text.SimpleDateFormat
 import java.time.LocalDate
@@ -35,6 +32,21 @@ class PesagemActivity : AppCompatActivity() {
         buttonSalvarPeso.setOnClickListener {
             Toast.makeText(this, "Peso cadastrado", Toast.LENGTH_SHORT).show()
         }
+
+
+        val spinner: Spinner = findViewById(R.id.spinner)
+// Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.planets_array,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner.adapter = adapter
+        }
+
 
     }
 }
