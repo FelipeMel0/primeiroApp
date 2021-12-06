@@ -57,12 +57,9 @@ class DashboardActivity : AppCompatActivity() {
         }
 
         cardHistorico.setOnClickListener{
-            val pesagemRepository = PesagemRepository(this)
-            val listaPesagem = pesagemRepository.getListaPesagem()
 
-            for (p in listaPesagem){
-                Log.i("xpto", "${p.dataPesagem} - ${p.peso}")
-            }
+            val intent = Intent(this, HistoricoActivity::class.java)
+            startActivity(intent)
 
         }
 
