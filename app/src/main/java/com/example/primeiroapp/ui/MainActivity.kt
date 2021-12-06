@@ -26,9 +26,9 @@ class MainActivity : AppCompatActivity() {
             val peso = editTextPeso.text.toString().toInt()
             val altura = editTextAltura.text.toString().toDouble()
 
-            val imc = calcularImc(peso, altura)
+//            val imc = calcularImc(peso, altura)
 
-            textViewResultado.text = String.format("%.2f", imc)
+//            textViewResultado.text = String.format("%.2f", imc)
 
         }
 

@@ -4,12 +4,14 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import com.example.primeiroapp.R
+import com.example.primeiroapp.respository.PesagemRepository
 import com.example.primeiroapp.utils.calcularIdade
 import com.example.primeiroapp.utils.convertBase64ToBitMap
 
@@ -25,6 +27,7 @@ class DashboardActivity : AppCompatActivity() {
     lateinit var ivPerfil: ImageView
     lateinit var tvDataNascimento : TextView
     lateinit var tvFotoPerfil: ImageView
+    lateinit var cardHistorico: CardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +44,7 @@ class DashboardActivity : AppCompatActivity() {
         tvPeso = findViewById(R.id.tv_peso)
         tvIdade = findViewById(R.id.tv_idade)
         tvFotoPerfil = findViewById(R.id.iv_dash_foto)
+        cardHistorico = findViewById(R.id.card_historico)
 
         val tvPesar = findViewById<LinearLayout>(R.id.ll_pesar_agora)
 
@@ -50,6 +54,16 @@ class DashboardActivity : AppCompatActivity() {
             val abrirDatePickerActivity = Intent(this, PesagemActivity::class.java)
 
             startActivity(abrirDatePickerActivity)
+        }
+
+        cardHistorico.setOnClickListener{
+            val pesagemRepository = PesagemRepository(this)
+            val listaPesagem = pesagemRepository.getListaPesagem()
+
+            for (p in listaPesagem){
+                Log.i("xpto", "${p.dataPesagem} - ${p.peso}")
+            }
+
         }
 
     }
